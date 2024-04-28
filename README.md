@@ -22,5 +22,5 @@ npm i
 2. Run app
 
 ```bash
-npm run dev
+OLLAMA_API_HOST=OLLAMA_API_HOST OLLAMA_API_PORT=OLLAMA_API_PORT npm run dev
 ```

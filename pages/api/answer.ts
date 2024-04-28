@@ -1,4 +1,4 @@
-import { OpenAIStream } from "@/utils/answer";
+import { OllamaStream } from "@/utils/answer";
 
 export const config = {
   runtime: "edge"
@@ -10,7 +10,7 @@ const handler = async (req: Request): Promise<Response> => {
       prompt: string;
     };
 
-    const stream = await OpenAIStream(prompt);
+    const stream = await OllamaStream(prompt);
 
     return new Response(stream);
   } catch (error) {

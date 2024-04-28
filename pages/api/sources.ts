@@ -1,4 +1,4 @@
-import { OpenAIModel, Source } from "@/types";
+import { OllamaModels, Source } from "@/types";
 import { Readability } from "@mozilla/readability";
 import * as cheerio from "cheerio";
 import { JSDOM } from "jsdom";
@@ -13,7 +13,7 @@ const searchHandler = async (req: NextApiRequest, res: NextApiResponse<Data>) =>
   try {
     const { query, model } = req.body as {
       query: string;
-      model: OpenAIModel;
+      model: OllamaModels;
     };
 
     console.log(`Search Query: ${query}`)

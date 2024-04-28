@@ -1,5 +1,5 @@
-export enum OpenAIModel {
-  DAVINCI_TURBO = "wizardlm2:latest"
+export enum OllamaModels {
+  WIZARDLM2 = "wizardlm2:latest"
 }
 
 export type Source = {

@@ -1,11 +1,14 @@
 version: "3"
 
 services:
-  next-app:
-    container_name: next-app
+  ai-search:
+    container_name: ai-search
     build:
       context: ./
       dockerfile: Dockerfile
+    environment:
+      - OLLAMA_API_HOST=OLLAMA_API_HOST
+      - OLLAMA_API_PORT=OLLAMA_API_PORT
     restart: always
     ports:
       - 3000:3000

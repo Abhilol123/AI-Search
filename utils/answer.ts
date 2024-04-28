@@ -1,16 +1,16 @@
-import { OpenAIModel } from "@/types";
+import { OllamaModels } from "@/types";
 
-export const OpenAIStream = async (prompt: string) => {
+export const OllamaStream = async (prompt: string) => {
   const encoder = new TextEncoder();
   const decoder = new TextDecoder();
 
-  const res = await fetch("http://100.98.25.33:8080/api/chat", {
+  const res = await fetch(`http://${process.env.OLLAMA_API_HOST}:${process.env.OLLAMA_API_PORT}/api/chat`, {
     headers: {
       "Content-Type": "application/json",
     },
     method: "POST",
     body: JSON.stringify({
-      model: OpenAIModel.DAVINCI_TURBO,
+      model: OllamaModels.WIZARDLM2,
       messages: [
         { role: "system", content: "You are a helpful assistant that accurately answers the user's queries based on the given text." },
         { role: "user", content: prompt }
@@ -22,7 +22,7 @@ export const OpenAIStream = async (prompt: string) => {
   });
 
   if (!res.ok) {
-    throw new Error("OpenAI API returned an error");
+    throw new Error("Ollama API returned an error");
   }
 
   const stream = new ReadableStream({
